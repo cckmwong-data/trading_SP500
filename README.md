@@ -1,4 +1,4 @@
-# Trading S&P 500 Using ARIMA–GARCH Modelling
+# Trading S&P 500 Using ARIMA–GARCH Model
 
 This project applies **ARIMA–GARCH modelling** to daily S&P 500 returns to assess whether short-horizon forecasts can produce superior risk-adjusted performance relative to a passive Buy-and-Hold benchmark. The project demonstrates practical applications of time-series econometrics, financial forecasting, and strategy backtesting.
 
