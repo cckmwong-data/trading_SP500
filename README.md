@@ -61,7 +61,7 @@ Signals are executed on the next trading day.
 
 ### Choice of Risk-free Rate (Rf)
 
-During the pandemic, the Federal Reserve slashed interest rates to the "zero-lower bound" to support the economy, the return on safe assets like 3-Month Treasury bills effectively vanished. The most common proxy for the risk-free rate (Rf​) is the 3-Month U.S. Treasury Bill. 
+During the pandemic, the Federal Reserve slashed interest rates to the "zero-lower bound" to support the economy, the return on safe assets like 3-Month Treasury bills effectively vanished. The most common proxy for the risk-free rate (Rf​) is the *3-Month U.S. Treasury Bill*. 
 
 Here is how it averaged during that window:
 
@@ -93,11 +93,11 @@ The ARIMA–GARCH strategy posted a high Sharpe ratio during the COVID-19 pandem
 
 This divergence arises because:
 
-1. **Dynamic Risk Mitigation (GARCH)**: The model identified volatility clustering (i.e. conditional heteroskedasticity) during the pandemic. By forecasting spikes in conditional variance, it reduced exposure during high-risk periods, lowering the denominator (realized volatility) compared to the benchmark.
+1. **Dynamic Risk Mitigation (GARCH)**: The model identified *volatility clustering* (i.e. *conditional heteroskedasticity*) during the pandemic. By forecasting spikes in conditional variance, it reduced exposure during high-risk periods, lowering the denominator (realized volatility) compared to the benchmark.
 
 2. **Precision Entry/Exit (ARIMA)**: By modeling the conditional mean, the strategy captured short-term trends and "V-shaped" reversals. This allowed for consistent gains (higher numerator) while the benchmark remained stagnant during recovery phases.
 
-3. **Drawdown Protection**: The active investment strategy using ARIMA ande GARCH successfully navigated "tail risk" events. By reacting to statistical signals rather than holding through the crash, it avoided the deep capital erosion that led to the benchmark's negative Sharpe ratio.
+3. **Drawdown Protection**: The active investment strategy using ARIMA ande GARCH successfully navigated "tail risk" events and transformed into significant *Alpha*. By reacting to statistical signals rather than holding through the crash, it avoided the deep capital erosion that led to the benchmark's negative Sharpe ratio.
 
 With the risk-free rate near zero (0.15%), the model’s ability to maintain positive returns translated directly into significant Alpha, whereas the benchmark's return fell below the risk-free hurdle.
 
