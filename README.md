@@ -103,6 +103,35 @@ With the risk-free rate near zero (0.15%), the model’s ability to maintain pos
 
 ---
 
+## Future Improvements and Extensions
+
+A series of enhancements can be implemented to address real-world market frictions, model assumptions, and scalability requirements.
+
+### 1. Transaction Costs and Execution Modeling
+
+The current backtest operates under a frictionless assumption. Real trading environments impose non-trivial execution costs, especially for strategies that rebalance frequently.
+
+- **Commissions:** Fixed or proportional fees assessed per order.
+- **Bid–Ask Spread:** Execution price modeled off the spread, which typically widens during high-volatility regimes (e.g., COVID pandemic).
+- **Slippage:** Price deviation between signal generation (e.g., close) and actual execution (e.g., next-day open).
+
+Integrating these frictions enables more realistic profit and loss estimation and prevents overstated alpha.
+
+### 2. Enhanced Risk Management & Position Sizing
+
+Although GARCH provides conditional variance estimates, the current strategy employs binary long/flat logic. Production-grade systems generally modulate position size as a function of forecasted risk.
+
+- **Volatility Targeting:** Dynamically adjusting position size so that the portfolio maintains a roughly constant volatility level through time (e.g. Scale exposure inversely to predicted volatility)
+- **Stop-Loss / Take-Profit Levels:** Hard exits to curb losses or take profits during extreme tail events that exceed parametric volatility assumptions.
+- **Drawdown Controls:** Constraints on portfolio-level drawdowns to prevent catastrophic capital impairment.
+
+These mechanisms improve both capital efficiency and operational robustness.
+
+### 3. Multi-Asset Expansion & Exogenous Drivers (ARIMAX)
+
+Introducing additional predictive signals and cross-asset structure can increase model capacity and reduce idiosyncratic noise. Incorporate variables (*eXogenous variables*) such as VIX, inflation, or interest rates to enrich the conditional mean.
+
+---
 ## Tools and Technologies
 
 This project demonstrates:
