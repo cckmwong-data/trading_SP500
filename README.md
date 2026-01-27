@@ -32,7 +32,7 @@ The motivation extends to real-world financial analytics use cases, including:
 - Frequency: Daily close prices
 - Transformation: Prices → *Log returns* `diff(log(Ad(GSPC)))`
 - Handling: Removal of initial NA returns `returns_na <- na.omit(diff(log(Ad(GSPC))))`
-- Period: 2018-01-01 - 2025-09-17
+- Period: 2018-01-01 - 2025-12-31
 
 We selected daily log returns because they convert multiplicative price changes into an additive format. This ensures **stationarity**, satisfying a core requirement for ARIMA and GARCH modeling that raw price levels fail to meet.
 
@@ -59,6 +59,16 @@ Forecasts generate next-day trading signals based on the following rules:
 
 Signals are executed on the next trading day.
 
+### Choice of Risk-free Rate (Rf)
+
+During the pandemic, the Federal Reserve slashed interest rates to the "zero-lower bound" to support the economy, the return on safe assets like 3-Month Treasury bills effectively vanished. The most common proxy for the risk-free rate (Rf​) is the 3-Month U.S. Treasury Bill. Here is how it averaged during that window:
+
+- 2020 (March–December): ~0.10%
+- 2021 (Full Year): ~0.05%
+- 2022 (January–March): ~0.30% (Rates only began rising in mid-March 2022)
+
+**So, the estimated Average Rf (Mar 2020 – Mar 2022): ~0.15% per annum**
+
 ---
 
 ## Evaluation Metric
@@ -75,7 +85,7 @@ Sharpe ratio is chosen because it adjusts for volatility and is a standard perfo
 
 ## Results Summary
 
-The ARIMA–GARCH strategy posted a **Sharpe ratio above 1** (1.26) during the COVID-19 pandemic period, indicating strong risk-adjusted performance. In contrast, the Buy-and-Hold benchmark exhibited a **negative Sharpe ratio**, implying that its return over the same window was below the risk-free rate on a volatility-adjusted basis.
+The ARIMA–GARCH strategy posted a high Sharpe ratio above 1 during the COVID-19 pandemic period between Mar 2020 to Mar 2022, indicating strong risk-adjusted performance. In contrast, the Buy-and-Hold benchmark exhibited a a very low negative Sharpe ratio, implying that its return over the same window was below the risk-free rate on a volatility-adjusted basis.
 
 ### Reason for Sharpe Divergence
 
