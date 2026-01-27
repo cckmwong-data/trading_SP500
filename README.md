@@ -67,7 +67,7 @@ During the pandemic, the Federal Reserve slashed interest rates to the "zero-low
 - 2021 (Full Year): ~0.05%
 - 2022 (January–March): ~0.30% (Rates only began rising in mid-March 2022)
 
-**So, the estimated Average Rf (Mar 2020 – Mar 2022): ~0.15% per annum**
+**So, the estimated average Rf (Mar 2020 – Mar 2022): ~0.15% per annum**
 
 ---
 
@@ -91,17 +91,13 @@ The ARIMA–GARCH strategy posted a high Sharpe ratio above 1 during the COVID-1
 
 This divergence arises because:
 
-1. **Buy-and-Hold absorbed crisis drawdowns**  
-   The early 2020 pandemic sell-off produced substantial negative returns, depressing the benchmark’s mean.
+1. **Dynamic Risk Mitigation (GARCH)**: The model identified volatility clustering (i.e. conditional heteroskedasticity) during the pandemic. By forecasting spikes in conditional variance, it reduced exposure during high-risk periods, lowering the denominator (realized volatility) compared to the benchmark.
 
-2. **Volatility spiked significantly**  
-   Sharpe penalizes volatility, and realized volatility surged during crisis conditions.
+2. **Precision Entry/Exit (ARIMA)**: By modeling the conditional mean, the strategy captured short-term trends and "V-shaped" reversals. This allowed for consistent gains (higher numerator) while the benchmark remained stagnant during recovery phases.
 
-3. **Model-based strategy adapted to regime shifts**  
-   The ARIMA–GARCH strategy could avoid exposure or flip direction in response to negative forecasts, reducing drawdown participation.
+3. **Drawdown Protection**: The active investment strategy using ARIMA ande GARCH successfully navigated "tail risk" events. By reacting to statistical signals rather than holding through the crash, it avoided the deep capital erosion that led to the benchmark's negative Sharpe ratio.
 
-4. **Crisis periods reinforce short-horizon predictability**  
-   During high-volatility events, both return autocorrelation and volatility persistence increase, enhancing the effectiveness of ARIMA–GARCH forecasting relative to calm market conditions.
+With the risk-free rate near zero (0.15%), the model’s ability to maintain positive returns translated directly into significant Alpha, whereas the benchmark's return fell below the risk-free hurdle.
 
 ---
 
