@@ -61,7 +61,7 @@ Signals are executed on the next trading day.
 
 ### Choice of Risk-free Rate (Rf)
 
-During the pandemic, the Federal Reserve slashed interest rates to the "zero-lower bound" to support the economy, the return on safe assets like 3-Month Treasury bills effectively vanished. The most common proxy for the risk-free rate (Rf​) is the *3-Month U.S. Treasury Bill*. 
+During the pandemic, the Federal Reserve slashed interest rates to the "zero-lower bound" to support the economy, the return on safe assets like 3-Month Treasury bills effectively vanished. The most common proxy for the risk-free rate (Rf​) is the *3-Month U.S. Treasury Bill* which is an annualized money-market yield. 
 
 Here is how it averaged during that window:
 
@@ -119,7 +119,7 @@ Integrating these frictions enables more realistic profit and loss estimation an
 
 ### 2. Enhanced Risk Management & Position Sizing
 
-Although GARCH provides conditional variance estimates, the current strategy employs binary long/flat logic. Production-grade systems generally modulate position size as a function of forecasted risk.
+Although GARCH provides conditional variance estimates, the current strategy employs binary long/short/hold logic. Production-grade systems generally modulate position size as a function of forecasted risk.
 
 - **Volatility Targeting:** Dynamically adjusting position size so that the portfolio maintains a roughly constant volatility level through time (e.g. Scale exposure inversely to predicted volatility)
 - **Stop-Loss / Take-Profit Levels:** Hard exits to curb losses or take profits during extreme tail events that exceed parametric volatility assumptions.
