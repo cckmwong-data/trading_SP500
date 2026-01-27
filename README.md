@@ -61,7 +61,9 @@ Signals are executed on the next trading day.
 
 ### Choice of Risk-free Rate (Rf)
 
-During the pandemic, the Federal Reserve slashed interest rates to the "zero-lower bound" to support the economy, the return on safe assets like 3-Month Treasury bills effectively vanished. The most common proxy for the risk-free rate (Rf​) is the 3-Month U.S. Treasury Bill. Here is how it averaged during that window:
+During the pandemic, the Federal Reserve slashed interest rates to the "zero-lower bound" to support the economy, the return on safe assets like 3-Month Treasury bills effectively vanished. The most common proxy for the risk-free rate (Rf​) is the 3-Month U.S. Treasury Bill. 
+
+Here is how it averaged during that window:
 
 - 2020 (March–December): ~0.10%
 - 2021 (Full Year): ~0.05%
@@ -85,7 +87,7 @@ Sharpe ratio is chosen because it adjusts for volatility and is a standard perfo
 
 ## Results Summary
 
-The ARIMA–GARCH strategy posted a high Sharpe ratio above 1 during the COVID-19 pandemic period between Mar 2020 to Mar 2022, indicating strong risk-adjusted performance. In contrast, the Buy-and-Hold benchmark exhibited a a very low negative Sharpe ratio, implying that its return over the same window was below the risk-free rate on a volatility-adjusted basis.
+The ARIMA–GARCH strategy posted a high Sharpe ratio during the COVID-19 pandemic period between Mar 2020 and Mar 2022, indicating strong risk-adjusted performance. In contrast, the Buy-and-Hold benchmark exhibited a very low  Sharpe ratio, implying that its return over the same window was below the risk-free rate on a volatility-adjusted basis.
 
 ### Reason for Sharpe Divergence
 
