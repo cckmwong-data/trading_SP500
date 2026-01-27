@@ -10,10 +10,10 @@ This project applies **ARIMA–GARCH model** to daily S&P 500 returns to assess 
 
 Financial time series frequently exhibit features such as autocorrelation, non-constant variance, and heavy tails. Traditional linear models fail to capture these dynamics, particularly during periods of market stress.
 
-This project evaluates whether incorporating both conditional mean and conditional variance dynamics via ARIMA–GARCH can improve portfolio decision-making. Specifically, the analysis tests whether:
+This project evaluates whether incorporating both conditional mean and conditional variance dynamics via ARIMA–GARCH can improve portfolio decision-making. Specifically, the analysis shows that:
 
-- Forecasted returns can inform directional positioning, and
-- Volatility forecasts can enhance risk-adjusted performance metrics.
+- Forecasted returns can inform directional positioning,
+- Volatility forecasts can enhance risk-adjusted performance metrics, and
 - The final decision (Buy/ Hold/ Sell) is a combination of ARIMA mean with GARCH variance.
 
 The motivation extends to real-world financial analytics use cases, including:
@@ -30,14 +30,11 @@ The motivation extends to real-world financial analytics use cases, including:
 - Instrument: **S&P 500 Index (GSPC)**
 - Source: *Yahoo Finance* via `quantmod::getSymbols()`
 - Frequency: Daily close prices
-- Transformation: Prices → *Log returns* (e.g., diff(log(Ad(GSPC)))).
-- Handling: Removal of initial NA returns
-- Period: Full availability from Yahoo Finance
+- Transformation: Prices → *Log returns* `diff(log(Ad(GSPC)))`
+- Handling: Removal of initial NA returns `returns_na <- na.omit(diff(log(Ad(GSPC))))`
+- Period: 2018-01-01 - 2025-09-17
 
-Daily log returns were selected because they:
-
-- Convert multiplicative price changes into additive form
-- are typically stationary (fundamental requirement for the statistical validity of ARIMA and GARCH models) whereas stock prices are not 
+We selected daily log returns because they convert multiplicative price changes into an additive format. This ensures **stationarity**, satisfying a core requirement for ARIMA and GARCH modeling that raw price levels fail to meet.
 
 ---
 
@@ -54,13 +51,13 @@ ARIMA order selection is performed using **AIC minimization** via `auto.arima()`
 
 ### Trading Strategy Logic
 
-Forecasts generate next-day trading signals based on:
+Forecasts generate next-day trading signals based on the following rules:
 
 - **Buy (Long)** if forecasted return > 0
 - **Sell (Short)** if forecasted return < 0
 - **Hold** if the model fails to converge
 
-Signals are executed on the next trading day. No leverage, transaction costs, or shorting constraints are included in the baseline implementation, to isolate model behavior and risk-adjusted return characteristics.
+Signals are executed on the next trading day.
 
 ---
 
@@ -68,8 +65,9 @@ Signals are executed on the next trading day. No leverage, transaction costs, or
 
 Performance is compared against a passive **Buy-and-Hold** benchmark using **Annualized Sharpe Ratio**:
 
-Sharpe = (mean(daily returns) × 252) / (sd(daily returns) × √252)
+*Daily Sharpe Ratio = (mean(daily returns) - risk-free rate/ 252)/ standard deviation(daily returns)*
 
+*Annualized Sharpe Ratio = Daily Sharpe Ratio * sqrt(252)*
 
 Sharpe ratio is chosen because it adjusts for volatility and is a standard performance metric in quantitative finance.
 
@@ -77,7 +75,7 @@ Sharpe ratio is chosen because it adjusts for volatility and is a standard perfo
 
 ## Results Summary
 
-The ARIMA–GARCH strategy posted a **Sharpe ratio above 1** during the COVID-19 pandemic period, indicating strong risk-adjusted performance. In contrast, the Buy-and-Hold benchmark exhibited a **negative Sharpe ratio**, implying that its return over the same window was below the risk-free rate on a volatility-adjusted basis.
+The ARIMA–GARCH strategy posted a **Sharpe ratio above 1** (1.26) during the COVID-19 pandemic period, indicating strong risk-adjusted performance. In contrast, the Buy-and-Hold benchmark exhibited a **negative Sharpe ratio**, implying that its return over the same window was below the risk-free rate on a volatility-adjusted basis.
 
 ### Reason for Sharpe Divergence
 
