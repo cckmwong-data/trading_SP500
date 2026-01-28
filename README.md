@@ -71,6 +71,7 @@ Here is how it averaged during that window:
 
 **So, the estimated average Rf (Mar 2020 – Mar 2022): ~0.15% per annum**
 
+<img src="./images/3mth_Tbills.png" width="" height="400">
 ---
 
 ## Evaluation Metric
