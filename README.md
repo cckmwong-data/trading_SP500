@@ -88,7 +88,9 @@ Sharpe ratio is chosen because it adjusts for volatility and is a standard perfo
 
 ## Results Summary
 
-We noticed that the ARIMA–GARCH strategy posted a consistently high Sharpe ratio during the COVID-19 pandemic period between March 2020 and March 2022, indicating strong risk-adjusted performance. The annualized Sharpe Ratio of ARIM+GARCH strategy is 1.2403, significantly higher than 0.0111 for Buy-and-Hold strategy.
+We noticed that the ARIMA–GARCH strategy posted a consistently high Sharpe ratio during the COVID-19 pandemic period between March 2020 and March 2022, indicating strong risk-adjusted performance. 
+
+**The annualized Sharpe Ratio of ARIM+GARCH strategy is 1.2403, significantly higher than 0.0111 for Buy-and-Hold strategy.**
 
 ### Reason for Sharpe Divergence
 
