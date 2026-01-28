@@ -2,7 +2,7 @@
 
 This project applies **ARIMA–GARCH model** to daily S&P 500 returns to assess whether short-horizon forecasts can produce superior risk-adjusted performance relative to a passive Buy-and-Hold benchmark. The project demonstrates practical applications of time-series econometrics, financial forecasting, and strategy backtesting.
 
-<img src="./images/returns.png" width="" height="500">
+<img src="./images/SP500_returns.png" width="" height="500">
 
 ---
 
