@@ -51,7 +51,7 @@ ARIMA order selection is performed using **AIC minimization** via `auto.arima()`
 
 ### Trading Strategy Logic
 
-Forecasts generate next-day trading signals based on the following rules:
+We combine the optimal ARIMA model with GARCH (1,1) which will be used to fit the return of each rolling window and predict the trading signal and expected returns of the following day.
 
 - **Buy (Long)** if forecasted return > 0
 - **Sell (Short)** if forecasted return < 0
@@ -61,7 +61,7 @@ Signals are executed on the next trading day.
 
 ### Choice of Risk-free Rate (Rf)
 
-During the pandemic, the Federal Reserve slashed interest rates to the "zero-lower bound" to support the economy, the return on safe assets effectively vanished. One of the most common proxies for the risk-free rate (Rf​) is the *3-Month U.S. Treasury Bill* which is an annualized money-market yield. 
+During the pandemic (2020-2022), the Federal Reserve slashed interest rates to the "zero-lower bound" to support the economy, the return on safe assets effectively vanished. One of the most common proxies for the risk-free rate (Rf​) is the *3-Month U.S. Treasury Bill* which is an annualized money-market yield. 
 
 Here is how it averaged during that window:
 
@@ -90,7 +90,7 @@ Sharpe ratio is chosen because it adjusts for volatility and is a standard perfo
 
 We noticed that the ARIMA–GARCH strategy posted a consistently high Sharpe ratio during the COVID-19 pandemic period between March 2020 and March 2022, indicating strong risk-adjusted performance. 
 
-**The annualized Sharpe Ratio of ARIM+GARCH strategy is 1.2403, significantly higher than 0.0111 for Buy-and-Hold strategy.**
+**The annualized Sharpe Ratio of ARIM+GARCH strategy is 1.2403, significantly higher than 0.0111 for Buy-and-Hold strategy, during the COVID pandemic.**
 
 ### Reason for Sharpe Divergence
 
