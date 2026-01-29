@@ -47,7 +47,7 @@ We selected daily log returns because they convert multiplicative price changes 
 
 The modeling pipeline consists of:
 
-1. **ARMA(p,q), where p, q are in the range of 0 and 4 (with d=0)** for conditional mean forecasts  
+1. **ARMA(p,q), with a grid search of p, q in the range of 0 and 4 (d=0)** for conditional mean forecasts  
 2. **GARCH(1,1)** for conditional variance forecasts
 
 ARIMA order selection is performed using **AIC (Akaike's Information Criterion) minimization** via `auto.arima()`. A fixed GARCH(1,1) structure is then applied to capture volatility clustering in the ARIMA residuals.
