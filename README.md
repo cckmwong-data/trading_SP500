@@ -1,8 +1,11 @@
 # Trading S&P 500 Using ARIMA–GARCH Model
 
-This [project](https://cckmwong-data.github.io/trading_SP500/S-P500_ARIMA_GARCH_final.html) applies **ARIMA–GARCH model** to daily S&P 500 returns to assess whether short-horizon forecasts can produce superior risk-adjusted performance relative to a passive Buy-and-Hold benchmark. The project demonstrates practical applications of time-series econometrics, financial forecasting, and strategy backtesting.
+This [project](https://cckmwong-data.github.io/trading_SP500/S-P500_ARIMA_GARCH_final.html) applies **ARIMA–GARCH model#** to daily S&P 500 returns to assess whether short-horizon forecasts can produce superior risk-adjusted performance relative to a passive Buy-and-Hold benchmark. The project demonstrates practical applications of time-series econometrics, financial forecasting, and strategy backtesting.
+
+#ARIMA: Autoregressive Integrated Moving Average; GARCH: Generalized Autoregressive Conditional Heteroskedasticity 
 
 <img src="./images/SP500_returns.png" width="" height="500">
+
 
 ---
 
@@ -47,7 +50,7 @@ The modeling pipeline consists of:
 1. **ARMA(p,q), where p, q are in the range of 0 and 4 (with d=0)** for conditional mean forecasts  
 2. **GARCH(1,1)** for conditional variance forecasts
 
-ARIMA order selection is performed using **AIC minimization** via `auto.arima()`. A fixed GARCH(1,1) structure is then applied to capture volatility clustering in the ARIMA residuals.
+ARIMA order selection is performed using **AIC (Akaike's Information Criterion) minimization** via `auto.arima()`. A fixed GARCH(1,1) structure is then applied to capture volatility clustering in the ARIMA residuals.
 
 ### Trading Strategy Logic
 
@@ -72,6 +75,7 @@ Here is how it averaged during that window:
 **So, the estimated average Rf (Mar 2020 – Mar 2022): ~0.15% per annum**
 
 <img src="./images/3mth_Tbills.png" width="" height="400">
+
 ---
 
 ## Evaluation Metric
